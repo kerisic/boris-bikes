@@ -23,7 +23,9 @@ describe 'DockingStationTest' do
       expect { subject.release_bike }.to raise_error("No bikes available")
     end
     it "dock bike" do
-      20.times {subject.dock(bike)}
+      DockingStation::DEFAULT_CAPACITY.times do
+        subject.dock(bike)
+      end
       expect { subject.dock(bike) }.to raise_error("Docking station full")
     end
   end
