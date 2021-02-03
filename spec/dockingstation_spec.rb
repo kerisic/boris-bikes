@@ -18,8 +18,13 @@ describe 'DockingStationTest' do
 
   describe "calling empty docking station" do
     subject = DockingStation.new
+    bike = Bike.new
     it "raises error" do
       expect { subject.release_bike }.to raise_error("No bikes available")
+    end
+    it "raises error" do
+      subject.dock(bike)
+      expect { subject.dock(bike) }.to raise_error("Docking station full")
     end
   end
 end
