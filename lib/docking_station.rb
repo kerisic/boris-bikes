@@ -1,4 +1,5 @@
 # in lib/docking_station.rb
+
 class DockingStation
   def release_bike
     Bike.new
@@ -7,7 +8,7 @@ end
 
 class Bike
   def working?
-
+    true
   end
 end
 

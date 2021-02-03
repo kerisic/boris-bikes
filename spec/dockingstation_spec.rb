@@ -7,8 +7,7 @@ describe 'DockingStationTest' do
   end
   it 'get the bike and check if bike is working' do
     docking_station = DockingStation.new
-    bike = docking_station.
-    #todo check if working? returns true
-    expect(bike).to respond_to(:working?)
+    bike = docking_station.release_bike
+    expect(bike).to be_working
   end
 end
