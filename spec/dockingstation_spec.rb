@@ -13,17 +13,17 @@ describe 'DockingStationTest' do
     expect(docking_station).to respond_to(:dock)
   end
   it 'the bike is stored at the docking station' do
-    expect(docking_station.dock(bike)).to eq(bike)
+    expect(docking_station.dock(bike)).to eq([bike])
   end
 
   describe "calling empty docking station" do
     subject = DockingStation.new
     bike = Bike.new
-    it "raises error" do
+    it "release bike" do
       expect { subject.release_bike }.to raise_error("No bikes available")
     end
-    it "raises error" do
-      subject.dock(bike)
+    it "dock bike" do
+      20.times {subject.dock(bike)}
       expect { subject.dock(bike) }.to raise_error("Docking station full")
     end
   end
